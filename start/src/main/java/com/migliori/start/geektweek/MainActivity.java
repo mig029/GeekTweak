@@ -5,6 +5,7 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,8 +26,7 @@ import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 
-public class MainActivity extends Activity {
-
+public class MainActivity extends FragmentActivity{
     private static Twitter twitter;
 
     protected static final String AUTHENTICATION_URL_KEY = "AUTHENTICATION_URL_KEY";
@@ -71,8 +71,9 @@ public class MainActivity extends Activity {
      * A placeholder fragment containing a simple view.
      */
 
-    public static class PlaceholderFragment extends Fragment  implements{
+    public class PlaceholderFragment extends Fragment  {
 
+        public View rootView;
         public PlaceholderFragment() {
 
         }
@@ -80,7 +81,16 @@ public class MainActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            Button login = (Button) rootView.findViewById(R.id.btnLoginToTwitter);
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    loginToTwitter();
+                }
+            });
+
             return rootView;
         }
     }

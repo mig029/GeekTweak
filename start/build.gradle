@@ -21,4 +21,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     compile files('libs/twitter4j-core-3.0.5.jar')
+    compile files('libs/twitter4j-core-3.0.5.jar')
+    compile 'com.android.support:support-v13:+'
 }
