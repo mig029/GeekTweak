@@ -1,24 +1,30 @@
 package com.migliori.start.geektweek;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
-import android.content.DialogInterface;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
-
-import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.util.Log;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -31,11 +37,24 @@ public class MainActivity extends FragmentActivity{
 
     protected static final String AUTHENTICATION_URL_KEY = "AUTHENTICATION_URL_KEY";
     protected static final int LOGIN_TO_TWITTER_REQUEST= 0;
+    static String PREFERENCE_NAME = "twitter_oauth";
+    static final String PREF_KEY_OAUTH_TOKEN = "oauth_token";
+    static final String PREF_KEY_OAUTH_SECRET = "oauth_token_secret";
+    static final String PREF_KEY_TWITTER_LOGIN = "isTwitterLogedIn";
+    Button logoutButton;
+    Button updateStatus;
+    Button login;
+
+    private static SharedPreferences mSharedPreferences;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
@@ -43,7 +62,8 @@ public class MainActivity extends FragmentActivity{
                     .commit();
         }
 
-
+        mSharedPreferences = getApplicationContext().getSharedPreferences(
+                "MyPref", 0);
     }
 
 
@@ -78,18 +98,56 @@ public class MainActivity extends FragmentActivity{
 
         }
 
+        EditText statusText;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            Button login = (Button) rootView.findViewById(R.id.btnLoginToTwitter);
+             login = (Button) rootView.findViewById(R.id.btnLoginToTwitter);
+             statusText = (EditText) rootView.findViewById(R.id.statusText);
             login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     loginToTwitter();
+                   login.setVisibility(View.GONE);
                 }
             });
+            updateStatus = (Button) rootView.findViewById(R.id.updateStatus);
+            updateStatus.setOnClickListener(new View.OnClickListener(){
+                @Override
+            public void onClick(View view)
+                {
+                    String status = statusText.getText().toString();
+                    if(status.trim().length() > 0){
+                        try {
+                            twitter.updateStatus(statusText.getText().toString());
+                            Toast.makeText(getApplicationContext(),
+                                    "Status Updated", Toast.LENGTH_SHORT)
+                                    .show();
+                            statusText.setText("");
+                            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(statusText.getWindowToken(), 0);
+
+                        } catch (TwitterException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+
+            logoutButton = (Button) rootView.findViewById(R.id.btnLogoutTwitter);
+
+            logoutButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    logoutFromTwitter();
+                }
+            });
+
+            List<Map<String, String>> planetsList = new ArrayList<Map<String,String>>();
+
+
+
 
             return rootView;
         }
@@ -108,7 +166,6 @@ public class MainActivity extends FragmentActivity{
             twitter.setOAuthConsumer(
                     getString(R.string.TWITTER_CONSUMER_KEY),
                     getString(R.string.TWITTER_CONSUMER_SECRET));
-
             try {
                 RequestToken requestToken = twitter.getOAuthRequestToken(
                         getString(R.string.TWITTER_CALLBACK_URL));
@@ -159,6 +216,27 @@ public class MainActivity extends FragmentActivity{
             }
             return null;
         }
+    }
+
+    private void logoutFromTwitter() {
+        // Clear the shared preferences
+        Editor e = mSharedPreferences.edit();
+        e.remove(PREF_KEY_OAUTH_TOKEN);
+        e.remove(PREF_KEY_OAUTH_SECRET);
+        e.remove(PREF_KEY_TWITTER_LOGIN);
+        e.commit();
+
+        // After this take the appropriate action
+        // I am showing the hiding/showing buttons again
+        // You might not needed this code
+        logoutButton.setVisibility(View.GONE);
+        updateStatus.setVisibility(View.GONE);
+        login.setVisibility(View.VISIBLE);
+        //lblUpdate.setVisibility(View.GONE);
+       // lblUserName.setText("");
+       // lblUserName.setVisibility(View.GONE);
+
+      //  btnLoginTwitter.setVisibility(View.VISIBLE);
     }
 
 }
