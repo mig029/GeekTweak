@@ -17,7 +17,7 @@ public class LoginToTwitter extends Activity {
         setContentView(R.layout.activity_login_to_twitter);
 
         Intent intent = getIntent();
-        String mUrl = intent.getStringExtra(MainActivity.AUTHENTICATION_URL_KEY);
+        String mUrl = intent.getStringExtra(Consts.AUTHENTICATION_URL_KEY);
 
         WebView webView = (WebView) findViewById(R.id.webViewLoginToTwitter);
         webView.getSettings().setJavaScriptEnabled(true);
