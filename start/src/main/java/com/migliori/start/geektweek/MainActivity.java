@@ -1,8 +1,6 @@
 package com.migliori.start.geektweek;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -12,29 +10,17 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
-
-import static android.R.layout.simple_list_item_1;
 
 public class MainActivity extends FragmentActivity{
     private static Twitter twitter;
@@ -44,6 +30,8 @@ public class MainActivity extends FragmentActivity{
     Thread thread;
     public static boolean loginState = false;
     private static SharedPreferences mSharedPreferences;
+    public  EditText statusText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,14 +42,12 @@ public class MainActivity extends FragmentActivity{
         StrictMode.setThreadPolicy(policy);
 
         if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+            getFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment())
                     .commit();
             loginToTwitter();
         }
 
-        mSharedPreferences = getApplicationContext().getSharedPreferences(
-                "MyPref", 0);
+        mSharedPreferences = getApplicationContext().getSharedPreferences("MyPref", 0);
     }
 
     @Override
@@ -88,101 +74,6 @@ public class MainActivity extends FragmentActivity{
     {
 
         return true;
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-
-    public class PlaceholderFragment extends Fragment  {
-
-        public Twitter latestTweetChecker;
-        public List statuses;
-        public View rootView;
-        public ListView timeline;
-        public  ArrayList<String> setTimeLine;
-        public Button timeLineButton;
-        public PlaceholderFragment() {
-
-
-        }
-
-        EditText statusText;
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            ///login = (Button) rootView.findViewById(R.id.btnLoginToTwitter);
-            timeLineButton = (Button) rootView.findViewById(R.id.refreshTimeline);
-            statusText = (EditText) rootView.findViewById(R.id.statusText);
-            /*
-            login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    loginToTwitter();
-                }
-            });
-            */
-            updateStatus = (Button) rootView.findViewById(R.id.updateStatus);
-            updateStatus.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view)
-                {
-                    String status = statusText.getText().toString();
-                    if(status.trim().length() > 0){
-                        try {
-
-
-                            twitter.updateStatus(statusText.getText().toString());
-
-                        } catch (TwitterException e) {
-                            e.printStackTrace();
-                        }
-                        statusText.setText("");
-                        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                        imm.hideSoftInputFromWindow(statusText.getWindowToken(), 0);
-                        Toast.makeText(getApplicationContext(), "Status Updated", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-            timeline = (ListView) rootView.findViewById(R.id.twitFeed);
-           // logoutButton = (Button) rootView.findViewById(R.id.btnLogoutTwitter);
-            statusText = (EditText) rootView.findViewById(R.id.statusText);
-            timeLineButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //loginToTwitter();
-                    Toast.makeText(getApplicationContext(), "Timeline Refreshed", Toast.LENGTH_SHORT).show();
-
-                    Twitter twitter = TwitterFactory.getSingleton();
-                    List<Status> statuses = null;
-                    try {
-                        statuses = twitter.getHomeTimeline();
-
-                    } catch (TwitterException e) {
-                        e.printStackTrace();
-                    }
-                    setTimeLine = new ArrayList<String>();
-                    System.out.println("Showing home timeline.");
-                    for (Status status : statuses) {
-                        setTimeLine.add(status.getUser().getName() + ":" +
-                                status.getText());
-                    }
-                    // Create The Adapter with passing ArrayList as 3rd parameter
-                    ArrayAdapter<String> arrayAdapter;
-                    arrayAdapter = new ArrayAdapter<String>(getActivity().getBaseContext(), simple_list_item_1, setTimeLine);
-                    // Set The Adapter
-                    timeline.setAdapter(arrayAdapter);
-
-
-                }
-            });
-
-
-
-
-            return rootView;
-        }
     }
 
     private void loginToTwitter() {
