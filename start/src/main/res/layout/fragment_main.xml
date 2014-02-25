@@ -24,24 +24,23 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/refreshTimeline"
+        android:id="@+id/TimeLineButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Refresh Timeline"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true" />
+        android:text="Timeline"
+        android:layout_below="@+id/updateStatus"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Status"
-        android:id="@+id/updateStatus"
-        android:layout_below="@+id/statusText"
+        android:text="Search"
+        android:id="@+id/searchButton"
+        android:layout_below="@+id/TimeLineButton"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
-
+<!--
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,8 +51,8 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/twitFeed"
+        android:id="@+id/"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/updateStatus" />
-
+-->
 </RelativeLayout>
