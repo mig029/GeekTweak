@@ -14,4 +14,12 @@
         android:title="@string/action_logout"
         android:orderInCategory="100"
         android:showAsAction="never" />
+    <item android:id="@+id/action_home"
+        android:title="@string/action_home"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item android:id="@+id/action_search"
+        android:title="@string/action_search"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
 </menu>
