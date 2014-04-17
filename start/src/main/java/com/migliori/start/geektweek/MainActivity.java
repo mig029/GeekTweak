@@ -5,7 +5,6 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -17,9 +16,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -56,7 +52,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         ft = getFragmentManager().beginTransaction();
-
+/*
         mTitle = mDrawerTitle = getTitle();
         mDrawerItems = getResources().getStringArray(R.array.items_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -76,11 +72,11 @@ public class MainActivity extends FragmentActivity {
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the sliding drawer and the action bar app icon
         mDrawerToggle = new ActionBarDrawerToggle(
-                this,                  /* host Activity */
-                mDrawerLayout,         /* DrawerLayout object */
-                R.drawable.ic_drawer,  /* nav drawer image to replace 'Up' caret */
-                R.string.drawer_open,  /* "open drawer" description for accessibility */
-                R.string.drawer_close  /* "close drawer" description for accessibility */
+                this,                  // host Activity
+                mDrawerLayout,          //DrawerLayout object
+                R.drawable.ic_drawer,   //nav drawer image to replace 'Up' caret
+                R.string.drawer_open,  // "open drawer" description for accessibility
+                R.string.drawer_close  // "close drawer" description for accessibility
         ) {
             public void onDrawerClosed(View view) {
                 getActionBar().setTitle(mTitle);
@@ -93,7 +89,7 @@ public class MainActivity extends FragmentActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-
+*/
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -236,6 +232,7 @@ public class MainActivity extends FragmentActivity {
 
 
     public void checkLogin(){
+
         MenuItem loginS = (MenuItem) findViewById(R.id.action_login);
         MenuItem logoutS = (MenuItem) findViewById(R.id.action_logout);
         if(loginState)
@@ -249,6 +246,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     /* The click listner for ListView in the navigation drawer */
+    /*
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -272,7 +270,7 @@ public class MainActivity extends FragmentActivity {
         setTitle(mPlanetTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
     }
-    */
+
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
@@ -282,7 +280,7 @@ public class MainActivity extends FragmentActivity {
     /**
      * When using the ActionBarDrawerToggle, you must call it during
      * onPostCreate() and onConfigurationChanged()...
-     */
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -297,5 +295,5 @@ public class MainActivity extends FragmentActivity {
         // Pass any configuration change to the drawer toggls
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
-
+    */
 }

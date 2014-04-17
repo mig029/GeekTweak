@@ -39,7 +39,7 @@ public class PlaceholderFragment extends Fragment {
     Button loginButton;
     Twitter twitter;
 
-    public PlaceholderFragment() {   }
+    //public PlaceholderFragment() {   }
 
 
 
@@ -50,8 +50,8 @@ public class PlaceholderFragment extends Fragment {
         
         timeLineButton = (Button) rootView.findViewById(R.id.TimeLineButton);
         //statusText = (EditText) rootView.findViewById(android.R.id.statusText);
-        /*
-        statusText.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+
+/*        statusText.setOnEditorActionListener(new TextView.OnEditorActionListener(){
 
             @Override
             public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) {
@@ -72,6 +72,7 @@ public class PlaceholderFragment extends Fragment {
                 }
             });
             */
+
         loginButton = (Button) rootView.findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener(){
            @Override
@@ -120,6 +121,7 @@ public class PlaceholderFragment extends Fragment {
 
             }
         });
+
         return rootView;
     }
 
