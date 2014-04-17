@@ -40,6 +40,7 @@
         android:layout_below="@+id/TimeLineButton"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
+<<<<<<< HEAD
 
     <Button
         android:layout_width="wrap_content"
@@ -64,4 +65,21 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/updateStatus" />
     -->
+=======
+<!--
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/statusText"
+        android:layout_below="@+id/refreshTimeline"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/updateStatus" />
+-->
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 </RelativeLayout>

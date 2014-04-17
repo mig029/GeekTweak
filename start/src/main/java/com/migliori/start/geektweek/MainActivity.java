@@ -1,7 +1,10 @@
 package com.migliori.start.geektweek;
 
 import android.app.Activity;
+<<<<<<< HEAD
 import android.app.FragmentTransaction;
+=======
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -16,7 +19,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+<<<<<<< HEAD
 import android.widget.Toast;
+=======
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
@@ -24,7 +30,11 @@ import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 
+<<<<<<< HEAD
 public class MainActivity extends FragmentActivity {
+=======
+public class MainActivity extends FragmentActivity{
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
     private static Twitter twitter;
     Button twitFeed;
     Button updateStatus;
@@ -34,7 +44,10 @@ public class MainActivity extends FragmentActivity {
     private static SharedPreferences mSharedPreferences;
     public  EditText statusText;
     Bitmap image;
+<<<<<<< HEAD
     FragmentTransaction ft;
+=======
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 
 
     @Override
@@ -42,9 +55,12 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
         ft = getFragmentManager().beginTransaction();
 
 
+=======
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);

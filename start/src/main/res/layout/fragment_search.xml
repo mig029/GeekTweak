@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     xmlns:card="http://schemas.android.com/apk/res-auto"
 
+=======
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,10 +17,15 @@
         <EditText
             android:layout_width="242dp"
             android:layout_height="match_parent"
+<<<<<<< HEAD
             android:id="@+id/searchText"
             android:inputType="text"
             android:imeOptions="actionSend"
             />
+=======
+            android:id="@+id/editText"
+            android:text="Enter Search Here" />
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 
         <Button
             android:layout_width="match_parent"
@@ -26,6 +34,7 @@
             android:id="@+id/searchButton"
             android:layout_gravity="right" />
 
+<<<<<<< HEAD
 
 
     </LinearLayout>
@@ -34,5 +43,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/card_search"/>
+=======
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_gravity="center_horizontal" />
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 
 </LinearLayout>

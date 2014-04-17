@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     xmlns:card="http://schemas.android.com/apk/res-auto"
+=======
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <EditText
+<<<<<<< HEAD
 
+=======
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/statusText"
         android:layout_below="@+id/refreshTimeline"
+<<<<<<< HEAD
         android:layout_alignParentStart="true"
         android:inputType="text"
         android:imeOptions="actionSend"
         />
 
+=======
+        android:layout_alignParentStart="true" />
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 
     <LinearLayout
         android:orientation="horizontal"
@@ -23,6 +33,7 @@
         android:layout_height="wrap_content">
 
         <Button
+<<<<<<< HEAD
                 android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 android:text="Tweet"
@@ -56,4 +67,49 @@
 <!--
     </LinearLayout>
 -->
+=======
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Status"
+            android:id="@+id/updateStatus"
+            android:layout_below="@+id/statusText"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="393dp">
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/twitFeed"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/updateStatus"
+            android:dividerHeight="2dp"
+            android:divider="#b5b5b5"
+            android:clickable="false" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/refreshTimeline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Refresh Timeline"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/profilePic" />
+>>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 </LinearLayout>
