@@ -1,7 +1,6 @@
 package com.migliori.start.geektweek;
 
 import android.app.Fragment;
-<<<<<<< HEAD
 import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -29,12 +28,6 @@ import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
-=======
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 
 /**
  * Created by Anthony on 2/22/14.
@@ -42,7 +35,6 @@ import android.view.ViewGroup;
 
 public class SearchFragment extends Fragment{
 
-<<<<<<< HEAD
     Query query;
     Button searchButton;
     QueryResult result;
@@ -159,8 +151,7 @@ public class SearchFragment extends Fragment{
             setTitle(mTitleMain);
         }
     }
-=======
-
+/*
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_search, container, false);
@@ -205,10 +196,10 @@ public class SearchFragment extends Fragment{
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
             }
         });
-*/
+
         return view;
 
     }
+    */
 
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 }

@@ -2,10 +2,7 @@ package com.migliori.start.geektweek;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-<<<<<<< HEAD
 import android.content.SharedPreferences;
-=======
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-<<<<<<< HEAD
-=======
 import android.widget.Toast;
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,12 +24,8 @@ import twitter4j.Twitter;
  */
 public class PlaceholderFragment extends Fragment {
 
-<<<<<<< HEAD
     private static SharedPreferences mSharedPreferences;
 
-
-=======
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
     public Twitter latestTweetChecker;
     public List statuses;
     public View rootView;
@@ -46,31 +36,18 @@ public class PlaceholderFragment extends Fragment {
     public QueryResult result;
     EditText statusText;
     Button searchButton;
-<<<<<<< HEAD
     Button loginButton;
     Twitter twitter;
 
     public PlaceholderFragment() {   }
 
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        ///login = (Button) rootView.findViewById(R.id.btnLoginToTwitter);
-
-=======
-    Twitter twitter;
-
-    public PlaceholderFragment() {
-
-
-    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_main, container, false);
         ///login = (Button) rootView.findViewById(R.id.btnLoginToTwitter);
         
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
         timeLineButton = (Button) rootView.findViewById(R.id.TimeLineButton);
         //statusText = (EditText) rootView.findViewById(android.R.id.statusText);
         /*
@@ -95,7 +72,6 @@ public class PlaceholderFragment extends Fragment {
                 }
             });
             */
-<<<<<<< HEAD
         loginButton = (Button) rootView.findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener(){
            @Override
@@ -105,8 +81,6 @@ public class PlaceholderFragment extends Fragment {
            }
         });
 
-=======
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
         searchButton = (Button) rootView.findViewById(R.id.searchButton);
         searchButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -119,24 +93,18 @@ public class PlaceholderFragment extends Fragment {
                 transaction.commit();
             }
         });
-<<<<<<< HEAD
        // timeline = (ListView) rootView.findViewById(R.id.twitFeed);
         // logoutButton = (Button) rootView.findViewById(R.id.btnLogoutTwitter);
         //statusText = (EditText) rootView.findViewById(R.id.statusText);
-=======
-        timeline = (ListView) rootView.findViewById(R.id.twitFeed);
+        //timeline = (ListView) rootView.findViewById(R.id.twitFeed);
         // logoutButton = (Button) rootView.findViewById(R.id.btnLogoutTwitter);
-        statusText = (EditText) rootView.findViewById(R.id.statusText);
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
+        //statusText = (EditText) rootView.findViewById(R.id.statusText);
         timeLineButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //loginToTwitter();
-<<<<<<< HEAD
                 //Toast.makeText(getActivity().getApplicationContext(), "Timeline Refreshed", Toast.LENGTH_SHORT).show();
-=======
                 Toast.makeText(getActivity().getApplicationContext(), "Timeline Refreshed", Toast.LENGTH_SHORT).show();
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 
                 Fragment newFragment = new TimeLineFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -154,7 +122,6 @@ public class PlaceholderFragment extends Fragment {
         });
         return rootView;
     }
-<<<<<<< HEAD
 
 /*
     private void loginToTwitter() {
@@ -222,7 +189,5 @@ public class PlaceholderFragment extends Fragment {
         }
     }
     */
-=======
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 }
 

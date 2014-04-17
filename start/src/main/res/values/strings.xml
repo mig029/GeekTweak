@@ -11,5 +11,12 @@
     <string name="action_logout">Logout</string>
     <string name="title_activity_login_to_twitter">LoginToTwitter</string>
     <color name="blue">#0000FF</color>
+    <string-array name="items_array">
+        <item>Search</item>
+        <item>Home</item>
+
+    </string-array>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 
 </resources>

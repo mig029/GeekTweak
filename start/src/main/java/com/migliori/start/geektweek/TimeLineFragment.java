@@ -1,7 +1,6 @@
 package com.migliori.start.geektweek;
 
 import android.app.Fragment;
-<<<<<<< HEAD
 import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -12,6 +11,8 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,32 +24,6 @@ import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
 import it.gmariotti.cardslib.library.internal.CardHeader;
 import it.gmariotti.cardslib.library.internal.CardThumbnail;
 import it.gmariotti.cardslib.library.view.CardListView;
-=======
-import android.app.FragmentTransaction;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -56,11 +31,6 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 
-<<<<<<< HEAD
-=======
-import static android.R.layout.simple_list_item_1;
-
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 /**
  * Created by Anthony on 2/23/14.
  */
@@ -69,21 +39,17 @@ public class TimeLineFragment extends Fragment{
     Query query;
     QueryResult result;
     Button timeLineButton;
-<<<<<<< HEAD
     Button tweet;
     String updateStatus;
     public EditText statusText;
 
-=======
     ArrayList<String> setTimeLine;
     ListView timeline;
     ImageView profilePic;
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
        View view = inflater.inflate(R.layout.fragment_timeline, container, false);
-<<<<<<< HEAD
         return view;
 
     }
@@ -270,8 +236,7 @@ public class TimeLineFragment extends Fragment{
             return image;
         }
 */
-=======
-
+/*
         timeline = (ListView) view.findViewById(R.id.twitFeed);
         profilePic = (ImageView) view.findViewById(R.id.profilePic);
 
@@ -365,7 +330,6 @@ public class TimeLineFragment extends Fragment{
         return image;
     }
 
->>>>>>> 96d2d7565c8eb8b39e06986d43d2719d7315e48b
-
+*/
 
 }
