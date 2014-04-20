@@ -78,7 +78,11 @@ public class PlaceholderFragment extends Fragment {
            @Override
             public void onClick(View view)
            {
-
+               Fragment testFragment = new LoginActivity();
+               FragmentTransaction transaction = getFragmentManager().beginTransaction();
+               transaction.replace(R.id.container, testFragment);
+               transaction.addToBackStack(null);
+               transaction.commit();
            }
         });
 

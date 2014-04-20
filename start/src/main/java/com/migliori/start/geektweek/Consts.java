@@ -10,4 +10,8 @@ public class Consts {
     static final String PREF_KEY_OAUTH_TOKEN = "oauth_token";
     static final String PREF_KEY_OAUTH_SECRET = "oauth_token_secret";
     static final String PREF_KEY_TWITTER_LOGIN = "isTwitterLogedIn";
+    static final String CALLBACK_URL = "";
+    static final String IEXTRA_OAUTH_VERIFIER = "";
+    static final String PREF_KEY_TOKEN = "";
+    static final String PREF_KEY_SECRET = "";
 }
